@@ -17,7 +17,7 @@ router.route('/user/:user').get(getProductByUser);
 
 router.route('/').post(Upload.single('image'), createProduct);
 
-router.route('/:id').get(getProductById).post(updateProduct).put(deleteProduct);
+router.route('/:id').get(getProductById).post(updateProduct).delete(deleteProduct);
 
 
 export default router;

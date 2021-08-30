@@ -18,7 +18,7 @@ router.route('/').post(createBid);
 
 router.route('/accept').post(acceptBid);
 
-router.route('/:id').get(getBidById).post(updateBid).put(deleteBid);
+router.route('/:id').get(getBidById).post(updateBid).delete(deleteBid);
 
 
 export default router;
