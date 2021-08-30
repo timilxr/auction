@@ -10,7 +10,7 @@ const bidSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'Users1'
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,

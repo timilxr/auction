@@ -2,6 +2,7 @@ import Product from '../models/product.model.js';
 import cloudinary from '../utils/cloudinary.js';
 import mongoose from 'mongoose';
 import Bid from '../models/bid.model.js';
+// import { data } from './deadline.js';
 // import Upload from '../utils/multer.js';
 // import data from '../productData.js';
 
@@ -11,6 +12,7 @@ export const getProducts = async (req, res) => {
         // Product.insertMany(data);
         const products = await Product.find().populate('user').populate('last_bid');
         console.log(products);
+        // data = products;
         res.status(200).json(products);
     }
     catch(error){
@@ -59,6 +61,8 @@ export const createProduct = async (req, res) => {
     details.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
 
     try{
+        details.deadline = new Date(details.deadline);
+        // console.log(details);
         details.user = mongoose.Types.ObjectId(details.user);
         const image = await cloudinary.uploader.upload(req.file.path);
         details.cloudinary_id = image.public_id;
@@ -81,6 +85,7 @@ export const createProduct = async (req, res) => {
     }
     catch(error){
         res.status(400).json({message: error.message, info: 'Error creating Product'});
+        console.log(error.message);
     }
 }
 

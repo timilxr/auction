@@ -10,7 +10,7 @@ const productSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'Users1'
     },
     name: {
         type: String,
@@ -41,6 +41,10 @@ const productSchema = new Schema({
     },
     cloudinary_id: {
         type: String,
+        required: true,
+    },
+    deadline: {
+        type: Date,
         required: true,
     }
 },{

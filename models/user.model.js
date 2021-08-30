@@ -47,5 +47,5 @@ const userSchema = new Schema({
         return await bcrypt.compareSync(enteredPassword, this.password);
     };
 
-    const User = mongoose.model('User', userSchema);
+    const User = mongoose.model('Users1', userSchema);
     export default User;
